@@ -27,6 +27,8 @@ dependencies:
   serverpod_flutter: 2.0.2
   todoapp_client:
     path: ../todoapp_client
+  serverpod_auth_email_flutter: 2.0.2
+  serverpod_auth_shared_flutter: 2.0.2
 
 
   # The following adds the Cupertino Icons font to your application.
