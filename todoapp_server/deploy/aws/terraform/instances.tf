@@ -6,8 +6,7 @@ data "aws_availability_zones" "available" {
 }
 
 # TODO: Fix?
-data "aws_ami" "amazon-linux" {
-  most_recent = true
+data "aws_ami_ids" "amazon-linux" {
   owners      = ["amazon"]
 
   filter {
