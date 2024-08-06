@@ -5,8 +5,9 @@ import 'package:todoapp_client/todoapp_client.dart';
 late Client client;
 late SessionManager sessionManager;
 
-Future initializesessionmanager() async {
-  client = Client('http://localhost:8080/',
+
+Future initializesessionmanager([String? apiurl]) async {
+  client = Client('http://$apiurl/',
       authenticationKeyManager: FlutterAuthenticationKeyManager())
     ..connectivityMonitor = FlutterConnectivityMonitor();
 

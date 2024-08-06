@@ -1,4 +1,8 @@
+import 'dart:developer';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:todoapp_flutter/common/apiurl.dart';
 import 'package:todoapp_flutter/src/sessionmanager.dart';
 
 import 'pages/home_screen.dart';
@@ -6,7 +10,16 @@ import 'pages/sigin_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await initializesessionmanager();
+  if (kDebugMode) {
+    await initializesessionmanager(DEVELOPMENTAPISERVER);
+    log('Running in debug mode', name: 'Run mode');
+  } else if (kReleaseMode) {
+    await initializesessionmanager(PRODCUTIONAPISERVER);
+    log('Running in release mode', name: 'Run mode');
+  } else if (kProfileMode) {
+    await initializesessionmanager(STAGINGAPISERVER);
+    log('Running in profile mode', name: 'Run mode');
+  }
   runApp(const MyApp());
 }
 
