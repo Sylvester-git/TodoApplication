@@ -10,16 +10,9 @@ import 'pages/sigin_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if (kDebugMode) {
-    await initializesessionmanager(DEVELOPMENTAPISERVER);
-    log('Running in debug mode', name: 'Run mode');
-  } else if (kReleaseMode) {
-    await initializesessionmanager(PRODCUTIONAPISERVER);
-    log('Running in release mode', name: 'Run mode');
-  } else if (kProfileMode) {
-    await initializesessionmanager(STAGINGAPISERVER);
-    log('Running in profile mode', name: 'Run mode');
-  }
+
+  await initializesessionmanager(PRODCUTIONAPISERVER);
+
   runApp(const MyApp());
 }
 
